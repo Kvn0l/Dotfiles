@@ -29,7 +29,7 @@ Basic and compact Hyprland rice built around [Qogir-Dark](https://github.com/vin
 |QT Config.:        | [qt5ct](https://github.com/desktop-app/qt5ct)/[qt6ct](https://github.com/trialuser02/qt6ct)  |
 
 More info about packages used [here](/package_list.txt)
-Requires ~/.local/bin,~/.config/hypr/scripts,~/.config/rofi/scripts in path
+Requires ~/.local/bin, ~/.config/hypr/scripts, ~/.config/rofi/scripts in path
 
 Contains modified versions of:
 https://gitlab.com/vahnrr/rofi-menus
