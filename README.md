@@ -4,7 +4,7 @@ Basic and compact Hyprland rice built around [Qogir-Dark](https://github.com/vin
 
 ![Inspired by Qogir](.config/hypr/wall.png)
 
-
+|                   |                                                                                              |
 | :---------------: | :------------------------------------------------------------------------------------------: |
 |OS:                | [Arch](https://archlinux.org/)                                                               |
 |WM:                | [Hyprland](https://github.com/hyprwm/Hyprland)                                               |
