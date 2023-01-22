@@ -1,0 +1,68 @@
+/* SLIDERS */
+QSlider::groove:horizontal {
+border: 1px solid palette(mid);
+background: palette(alternate-window);
+height: 10px;
+border-radius: 3px;
+}
+QSlider::groove:vertical {
+border: 1px solid palette(mid);
+background: palette(alternate-window);
+width: 10px;
+border-radius: 3px;
+}
+QSlider::sub-page:horizontal {
+background: palette(highlight);
+border: 1px solid transparent;
+height: 10px;
+border-radius: 3px;
+}
+QSlider::add-page:vertical {
+background: palette(highlight);
+border: 1px solid transparent;
+width: 10px;
+border-radius: 3px;
+}
+QSlider::add-page:horizontal{
+background: palette(alternate-window);
+border: 1px solid transparent;
+height: 10px;
+border-radius: 3px;
+}
+QSlider::sub-page:vertical{
+background: palette(alternate-window);
+border: 1px solid transparent;
+width: 10px;
+border-radius: 3px;
+}
+QSlider::handle:horizontal{
+background: palette(alternate-window);
+border: 1px solid palette(mid);
+width: 1ex;
+border-radius: 1px;
+}
+QSlider::handle:vertical{
+background: palette(alternate-window);
+border: 1px solid palette(mid);
+height: 1ex;
+border-radius: 1px;
+}
+QSlider::handle:horizontal:hover, QSlider::handle:vertical:hover{
+border: 1px solid palette(highlight);
+background: palette(alternate-window);
+}
+
+QSlider::sub-page:horizontal:disabled {
+background: palette(highlight);
+border-color: palette(highlight);
+}
+
+QSlider::add-page:horizontal:disabled {
+background: palette(highlight);
+border-color: palette(highlight);
+}
+
+QSlider::handle:horizontal:disabled {
+background: palette(alternate-window);
+border: 1px solid palette(highlight);
+}

@@ -1,0 +1,202 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 25,
+    "spacing": 2,
+    "modules-left": [
+        "custom/menu",
+        "wlr/workspaces",
+        "custom/media"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "custom/ds4",
+        "gamemode",
+        "tray",
+        "temperature",
+        "cpu",
+        "memory",
+        "bluetooth",
+        "network",
+        "pulseaudio",
+        "idle_inhibitor",
+        "clock",
+        "custom/notification"
+    ],
+    "wlr/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " on",
+            "deactivated": " off"
+        }
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 14,
+        "show-passive-items": "true"
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%B     %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%d %m %Y}",
+        "on-click-right": "",
+        "on-click-middle": "rofi-power"
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "format-alt": " {max_frequency} GHz",
+        "on-click-right": "foot --title=htop htop"
+    },
+    "memory": {
+        "format": " {}%",
+        "format-icons": [
+            "▁",
+            "▂",
+            "▃",
+            "▄",
+            "▅",
+            "▆",
+            "▇",
+            "█"
+        ],
+        "format-alt": " {used:0.1f}G/{total:0.1f}G",
+        "tooltip-format": "   RAM {percentage}%      SWAP {swapPercentage}%  \n {used:0.1f}G/{total:0.1f}G    {swapUsed:0.1f}G/{swapTotal:0.1f}G",
+        "on-click-right": "foot --title=htop htop"
+    },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "on-click-right": "foot --title=htop htop"
+    },
+    "network": {
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet": " {ifname}",
+        "tooltip-format-wifi": "  {ifname}\n{essid} {signalStrength}% {signaldBm}dBm\n{gwaddr}\n{ipaddr}/{cidr}\n {bandwidthDownBytes}  {bandwidthUpBytes}",
+        "tooltip-format-ethernet": " {ifname}\n{gwaddr}\n{ipaddr}/{cidr}\n {bandwidthDownBytes}  {bandwidthUpBytes}",
+        "tooltip-format-disconnected": "Disconnected",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "⚠ ",
+        "format-alt": " {bandwidthDownBytes}   {bandwidthUpBytes}",
+        "on-click-right": "rofi-network",
+        "on-click-middle": "nm-connection-editor",
+        "interval": 3
+    },
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-bluetooth-muted": "  X",
+        "format-muted": " X",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click-right": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon}{}",
+        "format-disconnected": "Disconnected",
+        "format-stopped": "Stopped",
+        "return-type": "json",
+        "format-icons": {
+            "Playing": " ",
+            "Paused": " ",
+            "Stopped": ""
+        },
+        "max-length": 32,
+        "exec": "playerctl -a metadata --format '{\"text\": \" {{markup_escape(title)}} \", \"tooltip\": \"{{playerName}} : {{artist}} - {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click": "playerctl play-pause",
+        "on-click-right": "cantata",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
+    },
+    "custom/ds4": {
+        "format": " {icon} ",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/scripts/supower.py --model 'Wireless Controller Motion Sensors'",
+        "interval": 10,
+        "on-click": "",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "gamemode": {
+        "format": "{glyph}",
+        "format-alt": "{glyph} {count}",
+        "glyph": "",
+        "hide-not-running": true,
+        "use-icon": true,
+        "icon-name": "input-gaming-symbolic",
+        "icon-spacing": 0,
+        "icon-size": 16,
+        "on-click": "",
+        "tooltip": true,
+        "tooltip-format": "Games running: {count}"
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon} {}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "bluetooth": {
+        "on-click-right": "rofi-bluetooth",
+        "on-click-middle": "$HOME/.config/waybar/scripts/bluetooth.sh",
+        "format": " {num_connections}",
+        "format-off": " {status}",
+        "format-alt": " {num_connections}",
+        "format-device-preference": [
+            "TWS V5.1",
+            "Wireless Controller"
+        ],
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+    },
+    "custom/menu": {
+        "on-click": "rofi-apps",
+        "on-click-right": "rofi-power",
+        "format": ""
+    }
+}

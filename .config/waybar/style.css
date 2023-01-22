@@ -1,0 +1,117 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, "NotoSans Nerd Font";
+    font-size: 14px;
+    color: @theme_text_color;
+    border-radius: 0px;
+}
+
+window#waybar {
+    background: @theme_base_color;
+    color: @theme_text_color;
+}
+
+tooltip {
+    border-radius: 6px;
+    padding: 0px;
+}
+
+#workspaces button {
+    padding: 0px 3px;
+    color: @theme_text_color;
+}
+
+#workspaces button:hover {
+    background: rgba(80, 80, 88, 0.3);
+}
+
+#workspaces button.active {
+	border: 1px solid @borders;
+}
+
+#workspaces button.active:hover {
+    background: @theme_selected_bg_color;
+}
+
+#clock,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#custom-media,
+#custom-ds4,
+#tray,
+#idle_inhibitor,
+#gamemode,
+#bluetooth,
+#custom-user {
+    padding: 0px 6px;
+    color: @theme_text_color;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left>widget:first-child>#workspaces {
+    margin-left: 0px;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right>widget:last-child>#workspaces {
+    margin-right: 0px;
+}
+
+#network,
+#clock {
+    padding: 0px 5px;
+}
+
+#network.disabled,
+#network.disconnected,
+#bluetooth.off,
+#pulseaudio.muted {
+    color: #aaaaaa;
+}
+
+#gamemode {
+    padding: 0px 8px;
+}
+
+#tray {
+    padding: 0px 6px;
+}
+
+#tray>.passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#idle_inhibitor {
+    padding: 0px 5px;
+    color: #aaaaaa;
+}
+
+#idle_inhibitor.activated {
+	color: @theme_text_color;
+}
+
+#custom-media {
+    padding: 0px 0px 0px 6px;
+}
+
+#custom-notification {
+    padding: 0px 5px;
+}
+
+#bluetooth {
+    padding: 0px 6px;
+}
+
+#custom-menu {
+	margin: 0px;
+	padding: 1px 6px 0px 6px;
+}
+
+
